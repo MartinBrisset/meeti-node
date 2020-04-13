@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&family=Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/app.css">
+    <title>Meeti - <%=nombrePagina%></title>
+</head>
+<body>
+    <header class="site-header contenedor">
+        <a href="/">
+            <img src="/img/logo.png" alt="Logo Meeti">
+        </a>
+
+        <nav class="nav">
+            <a href="#">Crear Grupo</a>
+            <a href="#">Iniciar Sesion</a>
+            <a href="/crear-cuenta">Registrarse</a>
+        </nav>
+    </header>
+
+    <%if (locals.mensajes) { %>
+        <% const categoria = Object.keys(locals.mensajes) %>
+        <% if (categoria.length) { %>
+            
+        <% } %>
+    <% } %>
+    
+
+    <%-body%>
+
+    <footer class="site-footer contenedor">
+        <nav class="nav">
+            <a href="#">Crear Grupo</a>
+            <a href="#">Iniciar Sesion</a>
+            <a href="/crear-cuenta">Registrarse</a>
+        </nav>
+
+        <p class="copyright">Todos los derechos reservados Meeti <%= locals.year%> &copy;</p>
+    </footer>
+    
+</body>
+</html>
