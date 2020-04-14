@@ -8,7 +8,15 @@ const Usuarios = db.define('usuarios', {
         primaryKey: true,
         autoIncrement: true
     },
-    nombre: Sequelize.STRING(60),
+    nombre: {
+        type: Sequelize.STRING(60),
+        allowNull: false,
+        validate: {
+            notEmpty: {
+                msg: 'El nombre no puede ir vacio'
+            }
+        }
+    },
     imagen: Sequelize.STRING(60),
     descripcion: Sequelize.TEXT,
     email: {
@@ -39,6 +47,7 @@ const Usuarios = db.define('usuarios', {
     expiraToken: Sequelize.DATE
 }, {
     hooks: {
+        //encriptar clave antes de guardarla
         beforeCreate(usuario) {
             usuario.password = bcrypt.hashSync(usuario.password, bcrypt.genSaltSync(10),
             null);

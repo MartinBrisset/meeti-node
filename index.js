@@ -3,11 +3,12 @@ const express = require('express')
 const morgan = require('morgan')
 const path = require('path')
 const expressLayouts = require('express-ejs-layouts')
-const router = require('./routes/index')
 const db = require('./config/db')
 const flash = require('connect-flash')
 const session = require('express-session')
 const cookieParser = require('cookie-parser')
+const passport = require('./config/passport')
+const router = require('./routes/index')
 
 //cargar modelos
 require('./models/Usuarios')
@@ -44,6 +45,10 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+
+//inicializar passport
+app.use(passport.initialize())
+app.use(passport.session())
 
 //agrega los mensajes flash
 app.use(flash())
