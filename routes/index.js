@@ -22,7 +22,7 @@ module.exports = () => {
 
     //nuevo grupo
     router.get('/nuevo-grupo', authController.usuarioAutenticado, gruposController.formNuevoGrupo)
-    router.post('/nuevo-grupo', authController.usuarioAutenticado, gruposController.nuevoGrupo)
+    router.post('/nuevo-grupo', authController.usuarioAutenticado, gruposController.subirImagen, gruposController.nuevoGrupo)
 
     return router
 }
