@@ -8,12 +8,20 @@ passport.use(new localStrategi({
 },
     async (email, password, next) => {
         //esto se ejecuta al llenar el formulario
-        const usuario = await Usuarios.findOne({where: {email}})
+        const usuario = await Usuarios.findOne({
+            where: {email}
+        })
 
         //revisar si existe
         if (!usuario) {
             return next(null, false, {
                 message: 'Ese usuario no existe'
+            })
+        }
+        //revisar si el usuario esta activo
+        if (usuario.activo != 1) {
+            return next(null, false, {
+                message: 'Debes validar tu correo'
             })
         }
         //si el user existe, compara la password
