@@ -24,5 +24,8 @@ module.exports = () => {
     router.get('/nuevo-grupo', authController.usuarioAutenticado, gruposController.formNuevoGrupo)
     router.post('/nuevo-grupo', authController.usuarioAutenticado, gruposController.subirImagen, gruposController.nuevoGrupo)
 
+    //editar grupos
+    router.get('/editar-grupo/:grupoId', authController.usuarioAutenticado, gruposController.formEditarGrupo)
+
     return router
 }
