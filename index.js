@@ -12,6 +12,8 @@ const router = require('./routes/index')
 
 //cargar modelos
 require('./models/Usuarios')
+require('./models/Categorias')
+require('./models/Grupos')
 
 //conectarse a bd
 db.sync()
