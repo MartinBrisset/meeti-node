@@ -4,15 +4,24 @@
   "description": "Proyecto de meete con Node, PostgreSQL, EJS",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./index.js"
+    "dev": "nodemon ./index.js",
+    "start": "node ./index.js",
+    "desarrollo": "concurrently \" npm run dev\" \"npm run watch \" ",
+    "watch": "webpack --w --mode development"
   },
   "author": "Martin Brisset",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.3"
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "babel-loader": "^8.1.0",
+    "nodemon": "^2.0.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
+    "concurrently": "^5.1.0",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.5",
     "ejs": "^3.0.2",

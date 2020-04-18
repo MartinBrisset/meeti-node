@@ -57,18 +57,17 @@
             <li>
                 <div class="informacion-admin">
                     <h3><%=grupo.nombre%></h3>
-                    <small>23 Asistentes</small>
                 </div>
                 <div class="acciones contenedor-botones">
                     <a href="/editar-grupo/<%=grupo.id%>" class="btn btn-verde">Editar</a>
                     <a href="/imagen-grupo/<%=grupo.id%>" class="btn btn-azul2">Imagen</a>
-                    <a href="/eleminar-grupo/<%=grupo.id%>" class="btn btn-rojo">Eliminar</a>
+                    <a href="/eliminar-grupo/<%=grupo.id%>" class="btn btn-rojo">Eliminar</a>
                 </div>
             </li>
             <% }) %>
         </ul>
-    <% } else { %>
+            <% } else { %>
         <p>No tiene ningun grupo creado, crea uno</p>
-        <%}%>
+            <%}%>
     </div>
 </main>
