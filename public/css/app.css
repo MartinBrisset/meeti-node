@@ -1,3 +1,8 @@
+.mapa {
+    height: 400px;
+    width: 500px;
+}
+
 html {
     box-sizing: border-box;
 }
@@ -627,3 +632,4 @@ aside .ubicacion {
 aside img {
     display: block;
 }
+
