@@ -1,1 +1,177 @@
-<h1><%=nombrePagina%></h1>
+<div class="hero">
+    <h1>Encuentra o crea un grupo para compartir lo que más te gusta</h1>
+    <a href="/crear-cuenta" class="btn btn-amarillo">Obtener Cuenta</a>
+</div>
+
+<div class="buscador-inicio">
+    <div class="contenedor">
+        <h2>Busca un grupo en tu ciudad</h2>
+        <form action="#">
+            <select name="categoria">
+                    <option value="" disabled selected>-- Selecciona Categoría --</option>
+                    <% categorias.forEach(categoria => { %> 
+                        <option value="<%= categoria.id %>"><%= categoria.nombre %> </option>
+                    <% }) %> 
+            </select>
+            <input type="text" name="nombre" placeholder="Nombre Meeti">
+            <input type="text" name="ciudad" placeholder="Ciudad">
+            <input type="text" name="pais" placeholder="País">
+            <input type="submit" value="Buscar" class="btn btn-rosa">
+        </form>
+    </div>
+</div>
+
+<div class="contenedor">
+    <h2>Próximos Meeti's</h2>
+    <div class="grid columnas-md-3 ">
+        <div class="card">
+            <img src="/img/imagen1.jpg">
+            <div class="card-texto">
+                <p class="fecha">Jueves 30 De Diciembre de 2019</p>
+                <a href="#">
+                    <h3>Desarrollo y Aceleración de Negocios</h3>
+                </a>
+                <div class="info-autor">
+                    <div class="imagen">
+                    </div>
+                    <div class="informacion">
+                        <p>Organizado por:</p>
+                        <p class="autor">Juan Pablo De la torre Valdez</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="/img/imagen2.jpg">
+            <div class="card-texto">
+                <p class="fecha">Jueves 30 De Diciembre de 2019<</p>
+                <a href="#">
+                    <h3>Desarrollo y Aceleración de Negocios</h3>
+                </a>
+                <div class="info-autor">
+                    <div class="imagen">
+                    </div>
+                    <div class="informacion">
+                        <p>Organizado por:</p>
+                        <p class="autor">Juan Pablo De la torre Valdez</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="/img/imagen3.jpg">
+            <div class="card-texto">
+                <p class="fecha">Jueves 30 De Diciembre de 2019</p>
+                <a href="#">
+                    <h3>3 Tipos de Pizza</h3>
+                </a>
+                <div class="info-autor">
+                    <div class="imagen">
+                    </div>
+                    <div class="informacion">
+                        <p>Organizado por:</p>
+                        <p class="autor">Juan Pablo De la torre Valdez</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main class="bg-gris categorias">
+    <h2>Encuentra Grupos por Categoría</h2>
+
+    <div class="contenedor">
+        <ul class="listado-categorias  grid columnas-2 columnas-md-3">
+            <li>
+                <a href="#">
+                    <img src="/img/categoria_1.jpg">
+                    <p>Programación</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/img/categoria_2.jpg">
+                    <p>Diseño</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/img/categoria_3.jpg">
+                    <p>Negocios y Emprendimiento</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/img/categoria_4.jpg">
+                    <p>Moda y Estilo</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/img/categoria_5.jpg">
+                    <p>Salud y Ejercicio</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/img/categoria_6.jpg">
+                    <p>Fotografía y Viajes</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/img/categoria_7.jpg">
+                    <p>Comida y Bebidas</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/img/categoria_8.jpg">
+                    <p>Diseño y Arquitectura</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/img/categoria_9.jpg">
+                    <p>Café</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/img/categoria_10.jpg">
+                    <p>Cine y Películas</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/img/categoria_11.jpg">
+                    <p>Libros</p>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/img/categoria_12.jpg">
+                    <p>Aprendizaje</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</main>
+
+<div class="meeti-bg">
+    <div class="contenedor meeti grid columnas-md-2">
+        <section>
+            <h3>Crea un grupo</h3>
+            <p>Comparte lo que te gusta o tu pasión con los demás, crea tu propio grupo hoy mismo sin costos</p>
+        </section>
+        <section>
+            <h3>Únete a un grupo</h3>
+            <p>Conoce personas con tus mismos gustos y pasiones, únete a un grupo ya existente y recibe notificaciones sobre próximos eventos</p>
+        </section>
+    </div>
+</div>
