@@ -9,45 +9,29 @@
 
     </div>
     <div class="seccion-admin">
-        <h2>Tus Eventos</h2>
+        <h2>Proximos Eventos - Meetis</h2>
+        <% if(meeti.length > 0) {  %> 
         <ul>
+            <% meeti.forEach(meeti => { %> 
             <li>
                 <div class="informacion-admin">
-                    <p class="fecha">Lunes, 22 de mayo 2020</p>
-                    <h3>E-Commerce en Montevideo</h3>
-                    <small>23 Asistentes</small>
+                    <% moment.locale('es') %> 
+                    <% const fecha = meeti.fecha + ' '+meeti.hora %> 
+                    <p class="fecha"><%= moment( fecha ).format('LLLL') %> Horas </p>
+                    <h3><%= meeti.titulo %> </h3>
+                    <small><%= meeti.interesados %>  Asistentes</small>
                 </div>
                 <div class="acciones contenedor-botones">
-                    <a href="#" class="btn btn-verde">Editar</a>
-                    <a href="#" class="btn btn-azul">Asistentes</a>
-                    <a href="#" class="btn btn-rojo">Eliminar</a>
+                    <a href="/editar-meeti/<%= meeti.id %> " class="btn btn-verde">Editar</a>
+                    <a href="/asistentes-meeti/<%= meeti.id %> " class="btn btn-azul">Asistentes</a>
+                    <a href="/eliminar-meeti/<%= meeti.id %> " class="btn btn-rojo">Eliminar</a>
                 </div>
             </li>
-            <li>
-                <div class="informacion-admin">
-                    <p class="fecha">Miercoles, 22 de Agosto 2020</p>
-                    <h3>Tu vieja llega a tu casa</h3>
-                    <small>2 Asistentes</small>
-                </div>
-                <div class="acciones contenedor-botones">
-                    <a href="#" class="btn btn-verde">Editar</a>
-                    <a href="#" class="btn btn-azul">Asistentes</a>
-                    <a href="#" class="btn btn-rojo">Eliminar</a>
-                </div>
-            </li>
-            <li>
-                <div class="informacion-admin">
-                    <p class="fecha">Sabado, 67 de Marzo 2020</p>
-                    <h3>El coronavirus nos tiene las bolas llenas</h3>
-                    <small>2.564.646.896.465 Asistentes</small>
-                </div>
-                <div class="acciones contenedor-botones">
-                    <a href="#" class="btn btn-verde">Editar</a>
-                    <a href="#" class="btn btn-azul">Asistentes</a>
-                    <a href="#" class="btn btn-rojo">Eliminar</a>
-                </div>
-            </li>
+            <% }) %> 
         </ul>
+        <% } else { %> 
+            <p>Aun no tienes meetis, crea uno</p>
+        <% } %> 
     </div>
     <div class="seccion-admin">
         <h2>Tus Grupos</h2>
@@ -69,5 +53,30 @@
             <% } else { %>
         <p>No tiene ningun grupo creado, crea uno</p>
             <%}%>
+    </div>
+    <div class="seccion-admin">
+        <h2>Anteriores Eventos - Meetis</h2>
+        <% if(meetiAnt.length > 0) {  %> 
+        <ul>
+            <% meetiAnt.forEach(meeti => { %> 
+            <li>
+                <div class="informacion-admin">
+                    <% moment.locale('es') %> 
+                    <% const fecha = meeti.fecha + ' '+meeti.hora %> 
+                    <p class="fecha"><%= moment( fecha ).format('LLLL') %> Horas </p>
+                    <h3><%= meeti.titulo %> </h3>
+                    <small><%= meeti.interesados %>  Asistentes</small>
+                </div>
+                <div class="acciones contenedor-botones">
+                    <a href="/editar-meeti/<%= meeti.id %> " class="btn btn-verde">Editar</a>
+                    <a href="/asistentes-meeti/<%= meeti.id %> " class="btn btn-azul">Asistentes</a>
+                    <a href="/eliminar-meeti/<%= meeti.id %> " class="btn btn-rojo">Eliminar</a>
+                </div>
+            </li>
+            <% }) %> 
+        </ul>
+        <% } else { %> 
+            <p>Aun no tienes meetis anteriores</p>
+        <% } %> 
     </div>
 </main>

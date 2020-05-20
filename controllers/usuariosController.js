@@ -9,7 +9,7 @@ exports.formCrearCuenta = (req, res) => {
 
 exports.crearCuenta = async (req, res) => {
     const info = req.body
-    //checkear si la password son iguales - pendiente
+    //checkear si la password son iguales
     if (info.password !== info.repetir) {
         req.flash('error', 'Las claves no son iguales');
         //si ocurre el error, enviar datos ya puestos y llenar el formulario - pendiente
@@ -62,4 +62,27 @@ exports.formIniciarSesion = (req, res) => {
 exports.iniciarSesion = async (req, res) => {
     const info = req.body;
     console.log(info);
+}
+
+exports.formEditarPerfil = async (req, res) => {
+    const usuario = await Usuarios.findByPk(req.user.id)
+
+    return res.render('editar-perfil', {
+        nombrePagina:'Editar Perfil',
+        usuario
+    })
+}
+
+exports.editarPerfil = async (req, res) => {
+    const usuario = await Usuarios.findByPk(req.user.id)
+
+    const {nombre, descripcion, email} = req.body;
+
+    usuario.nombre = nombre;
+    usuario.descripcion = descripcion;
+    usuario.email = email;
+
+    await usuario.save()
+    req.flash('exito', 'Usuario actualizado')
+    return res.redirect('/administracion')
 }
