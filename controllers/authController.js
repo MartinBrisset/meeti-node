@@ -18,3 +18,10 @@ exports.usuarioAutenticado = (req, res, next) => {
     //si no tiene la sesion
     return res.redirect('/iniciar-sesion')
 }
+
+//cerrar sesion
+exports.cerrarSesion = (req, res) => {
+    req.logout()
+    req.flash('correcto', 'Cerraste sesion')
+    return res.redirect('/iniciar-sesion')
+}

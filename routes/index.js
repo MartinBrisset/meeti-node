@@ -18,6 +18,9 @@ module.exports = () => {
     router.get('/iniciar-sesion', usuariosController.formIniciarSesion)
     router.post('/iniciar-sesion', authController.autenticarUsuario, usuariosController.iniciarSesion)
 
+    //cerrar sesion
+    router.get('/cerrar-sesion', authController.usuarioAutenticado, authController.cerrarSesion)
+
     //administracion
     router.get('/administracion',authController.usuarioAutenticado, adminController.panelAdministracion)
 
@@ -51,6 +54,9 @@ module.exports = () => {
     router.get('/editar-perfil', authController.usuarioAutenticado, usuariosController.formEditarPerfil)
     router.post('/editar-perfil', authController.usuarioAutenticado, usuariosController.editarPerfil)
 
+    //imagenes de perfil
+    router.get('/imagen-perfil', authController.usuarioAutenticado, usuariosController.formSubirImagenPerfil)
+    router.post('/imagen-perfil', authController.usuarioAutenticado, usuariosController.subirImagen, usuariosController.subirImagenPerfil)
 
     return router
 }

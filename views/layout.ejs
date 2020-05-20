@@ -16,9 +16,11 @@
         </a>
 
         <nav class="nav">
-            <a href="#">Crear Grupo</a>
-            <a href="/iniciar-sesion">Iniciar Sesion</a>
-            <a href="/crear-cuenta">Registrarse</a>
+            <% if(locals.usuario.id) { %> 
+                <%- include ('partials/nav-autenticado.ejs') -%> 
+            <% } else { %> 
+                <%- include ('partials/nav-no-autenticado.ejs') -%> 
+            <% } %> 
         </nav>
     </header>
 
@@ -38,9 +40,11 @@
 
     <footer class="site-footer contenedor">
         <nav class="nav">
-            <a href="#">Crear Grupo</a>
-            <a href="/iniciar-sesion">Iniciar Sesion</a>
-            <a href="/crear-cuenta">Registrarse</a>
+            <% if(locals.usuario.id) { %> 
+                <%- include ('partials/nav-autenticado.ejs') -%> 
+            <% } else { %> 
+                <%- include ('partials/nav-no-autenticado.ejs') -%> 
+            <% } %> 
         </nav>
 
         <p class="copyright">Todos los derechos reservados Meeti <%= locals.year%> &copy;</p>
