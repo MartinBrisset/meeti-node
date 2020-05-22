@@ -87,78 +87,14 @@
 
     <div class="contenedor">
         <ul class="listado-categorias  grid columnas-2 columnas-md-3">
-            <li>
-                <a href="#">
-                    <img src="/img/categoria_1.jpg">
-                    <p>Programación</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/img/categoria_2.jpg">
-                    <p>Diseño</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/img/categoria_3.jpg">
-                    <p>Negocios y Emprendimiento</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/img/categoria_4.jpg">
-                    <p>Moda y Estilo</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/img/categoria_5.jpg">
-                    <p>Salud y Ejercicio</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/img/categoria_6.jpg">
-                    <p>Fotografía y Viajes</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/img/categoria_7.jpg">
-                    <p>Comida y Bebidas</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/img/categoria_8.jpg">
-                    <p>Diseño y Arquitectura</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/img/categoria_9.jpg">
-                    <p>Café</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/img/categoria_10.jpg">
-                    <p>Cine y Películas</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/img/categoria_11.jpg">
-                    <p>Libros</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <img src="/img/categoria_12.jpg">
-                    <p>Aprendizaje</p>
-                </a>
-            </li>
+            <% categorias.forEach(categoria => { %>
+                <li>
+                    <a href="<%= categoria.slug %>">
+                        <img src="/img/categoria_<%= categoria.id %>.jpg">
+                        <p><%= categoria.nombre %></p>
+                    </a>
+                </li>
+           <% }) %> 
         </ul>
     </div>
 </main>
