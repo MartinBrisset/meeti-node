@@ -522,6 +522,13 @@ trix-toolbar .trix-button--icon-strike {
     text-align: left;
     font-size: 2rem;
 }
+.descripcion img {
+    width: 100%;
+    margin-bottom: 3rem;
+}
+.descripcion div {
+    line-height: 2;
+}
 /** Asistencia **/
 .pregunta-asistencia {
     display: flex;

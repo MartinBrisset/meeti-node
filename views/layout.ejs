@@ -50,7 +50,11 @@
         <p class="copyright">Creado por <a href="https://www.martinbrisset.com" target="_blank">M.B.B.</a> <%= locals.year%> &copy;</p>
     </footer>
     <script src="/js/trix.js"></script>
-    <script src="/dist/bundle.js"></script>
+
+    <% if(usuario.id) { %> 
+        <script src="/dist/bundle.js"></script>
+    <% } %> 
+    <script src="/js/meeti.js"></script>
     
 </body>
 </html>

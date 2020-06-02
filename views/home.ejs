@@ -24,61 +24,36 @@
 <div class="contenedor">
     <h2>Próximos Meeti's</h2>
     <div class="grid columnas-md-3 ">
-        <div class="card">
-            <img src="/img/imagen1.jpg">
-            <div class="card-texto">
-                <p class="fecha">Jueves 30 De Diciembre de 2019</p>
-                <a href="#">
-                    <h3>Desarrollo y Aceleración de Negocios</h3>
-                </a>
-                <div class="info-autor">
-                    <div class="imagen">
-                    </div>
-                    <div class="informacion">
-                        <p>Organizado por:</p>
-                        <p class="autor">Juan Pablo De la torre Valdez</p>
+        <% if(meetis.length >= 0) { %> 
+            <% meetis.forEach(meeti => { %> 
+                <!-- <%= JSON.stringify(meeti) %>  -->
+                <div class="card">
+                    <img src="/uploads/grupos/<%= meeti.grupo.imagen %> ">
+                    <div class="card-texto">
+                        <% moment.locale('es') %> 
+                        <% const fecha = meeti.fecha + ' ' + meeti.hora %> 
+                        <p class="fecha"><%= moment(fecha).format('LLLL') %> Horas </p>
+                        <a href="/meeti/<%= meeti.slug %> ">
+                            <h3><%= meeti.titulo %> </h3>
+                        </a>
+                        <div class="info-autor">
+                            <% if(meeti.usuario.imagen) { %> 
+                                <div class="imagen">
+                                    <img src="./uploads/perfiles/<%= meeti.usuario.imagen %> ">
+                                </div>
+                            <% } else { %> 
+                                <div class="imagen">
+                            <% } %> 
+                            <div class="informacion">
+                                <p>Organizado por:</p>
+                                <p class="autor"><%= meeti.usuario.nombre %> </p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="/img/imagen2.jpg">
-            <div class="card-texto">
-                <p class="fecha">Jueves 30 De Diciembre de 2019<</p>
-                <a href="#">
-                    <h3>Desarrollo y Aceleración de Negocios</h3>
-                </a>
-                <div class="info-autor">
-                    <div class="imagen">
-                    </div>
-                    <div class="informacion">
-                        <p>Organizado por:</p>
-                        <p class="autor">Juan Pablo De la torre Valdez</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="/img/imagen3.jpg">
-            <div class="card-texto">
-                <p class="fecha">Jueves 30 De Diciembre de 2019</p>
-                <a href="#">
-                    <h3>3 Tipos de Pizza</h3>
-                </a>
-                <div class="info-autor">
-                    <div class="imagen">
-                    </div>
-                    <div class="informacion">
-                        <p>Organizado por:</p>
-                        <p class="autor">Juan Pablo De la torre Valdez</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <% }) %> 
+         <% } %> 
     </div>
 </div>
 
