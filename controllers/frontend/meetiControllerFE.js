@@ -34,17 +34,44 @@ exports.mostrarMeeti = async (req, res) => {
 }
 
 exports.confirmarAsistencia = async (req, res) => {
-    return;
-    const interesados = Interesados;
-    //buscar id del meeti por slug
-    slug = req.params.slug;
-    meeti = await Meeti.findOne({where: {slug}});
-    //guardar en tabla de interesados
-    interesados.usuarioId = req.user.id
-    interesados.meetiId = meeti.id
 
-    await Interesados.create(interesados);
+    const { accion } = req.body
 
-    res.send('Has confirmado tu asistencia')
+    if (accion === 'confirmar') {
+        //agregar el usuario
+        const interesados = Interesados;
+        //buscar id del meeti por slug
+        slug = req.params.slug;
+        meeti = await Meeti.findOne({where: {slug}});
+        //guardar en tabla de interesados
+        interesados.usuarioId = req.user.id
+        interesados.meetiId = meeti.id
+    
+        await Interesados.create(interesados);
+        
+        return res.send('Has confirmado tu asistencia')
+    } else {
+        //borrar el usuario
+        const interesados = Interesados;
+        //buscar id del meeti por slug
+        slug = req.params.slug;
+        meeti = await Meeti.findOne({where: {slug}});
+        //guardar en tabla de interesados
+        interesados.usuarioId = req.user.id
+        interesados.meetiId = meeti.id
+    
+        await Interesados.destroy({where: {usuarioId: req.user.id, meetiId: meeti.id}});
+        return res.send('Has quitado la confirmacion a tu asistencia')
+        
+    }
 
+}
+
+exports.mostrarAsistentes = async (req, res) => {
+    //consultar a bd para capturar id del meeti
+    const meeti = await Meeti.findOne({where: {slug: req.params.slug}, attributes: ['id']})
+    //consultas a bd tabla de asistentes para mostrar los de ese meeti
+    const interesados = await Interesados.findAll({where: {meetiId: meeti.id}})
+    console.log(interesados);
+    //mandar vista
 }

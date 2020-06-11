@@ -17,6 +17,9 @@ module.exports = () => {
     //asistencia a meeti
     router.post('/confirmar-asistencia/:slug', meetiControllerFE.confirmarAsistencia)
 
+    //muestra asistentes del meeti
+    router.get('/asistentes/:slug', meetiControllerFE.mostrarAsistentes)
+
     router.get('/crear-cuenta', usuariosController.formCrearCuenta)
     router.post('/crear-cuenta', usuariosController.crearCuenta)
     router.get('/confirmar-cuenta/:correo', usuariosController.confirmarCuenta)
